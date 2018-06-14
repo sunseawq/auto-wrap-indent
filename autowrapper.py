@@ -45,11 +45,14 @@ def auto_wrap(input_file, dst_file, width):
     for eachline in alllines:
         pos = eachline.rstrip('\\\n').rfind('\\',0,width)
         if (pos == width-1) :
-            bc = textwrap.fill(eachline,pos-1)
-            print("backslash appear at the end of the line, the line is\
-                  wrapped at the position one character before the backslash")
+            print("The backslash is appears at the position 72, the line is\
+                  wrapped at the position several characters before this backslash.")
         else :
             bc = textwrap.fill(eachline,73)
+	if eachline.rstrip('\n').rfind(' ',width-2,width) == width-2 :
+            bc = bc[:width-2] + ' \n' + bc[width-1:]
+        if eachline.rstrip(' \n').rfind(' ',width-2,width) == width-1 :
+            bc = bc[:width-1] + ' \n' + bc[width:]
         tmplines = bc.split('\n')
         tmplen = len(tmplines)
         if tmplen == 1 :

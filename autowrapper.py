@@ -53,6 +53,8 @@ def auto_wrap(input_file, dst_file, width):
             bc = bc[:width-2] + ' \n' + bc[width-1:]
         if eachline.rstrip(' \n').rfind(' ',width-2,width) == width-1 :
             bc = bc[:width-1] + ' \n' + bc[width:]
+	if eachline.rstrip(' \n').rfind(' ',width-2,width+1) == width :
+            bc = bc[:width] + ' \n' + bc[width+1:]
         tmplines = bc.split('\n')
         tmplen = len(tmplines)
         if tmplen == 1 :

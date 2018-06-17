@@ -47,6 +47,7 @@ def auto_wrap(input_file, dst_file, width):
         if (pos == width-1) :
             print("The backslash is appears at the position 72, the line is\
                   wrapped at the position several characters before this backslash.")
+	    bc = textwrap.fill(eachline,width-1)
         else :
             bc = textwrap.fill(eachline,73)
 	if eachline.rstrip('\n').rfind(' ',width-2,width) == width-2 :
